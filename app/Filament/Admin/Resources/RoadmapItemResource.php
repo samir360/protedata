@@ -159,4 +159,9 @@ class RoadmapItemResource extends Resource
     {
         return __('Roadmap Items');
     }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
 }

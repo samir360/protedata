@@ -136,4 +136,9 @@ class BlogPostResource extends Resource
     {
         return __('Blog Posts');
     }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
 }

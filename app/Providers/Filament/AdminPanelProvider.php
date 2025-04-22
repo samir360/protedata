@@ -84,18 +84,18 @@ class AdminPanelProvider extends PanelProvider
                     ->label(__('Settings'))
                     ->icon('heroicon-s-cog')
                     ->collapsed(),
-                NavigationGroup::make()
-                    ->label(__('Announcements'))
-                    ->icon('heroicon-s-megaphone')
-                    ->collapsed(),
-                NavigationGroup::make()
-                    ->label(__('Blog'))
-                    ->icon('heroicon-s-newspaper')
-                    ->collapsed(),
-                NavigationGroup::make()
-                    ->label(__('Roadmap'))
-                    ->icon('heroicon-s-bug-ant')
-                    ->collapsed(),
+                // NavigationGroup::make()
+                //     ->label(__('Announcements'))
+                //     ->icon('heroicon-s-megaphone')
+                //     ->collapsed(),
+                // NavigationGroup::make()
+                //     ->label(__('Blog'))
+                //     ->icon('heroicon-s-newspaper')
+                //     ->collapsed(),
+                // NavigationGroup::make()
+                //     ->label(__('Roadmap'))
+                //     ->icon('heroicon-s-bug-ant')
+                //     ->collapsed(),
             ])
             ->plugins([
                 BreezyCore::make()
