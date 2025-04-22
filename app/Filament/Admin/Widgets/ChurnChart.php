@@ -19,13 +19,15 @@ class ChurnChart extends ChartWidget
 
     protected function getData(): array
     {
-        $startDate = $this->filters['start_date'];
-        $endDate = $this->filters['end_date'];
-        $period = $this->filters['period'];
+        // Get filters with default values if not set
+        $filters = $this->filters ?? [];
+        $startDate = $filters['start_date'] ?? now()->subYear()->toDateString();
+        $endDate = $filters['end_date'] ?? now()->toDateString();
+        $period = $filters['period'] ?? 'month';
 
         // parse the dates to Carbon instances
-        $startDate = $startDate ? Carbon::parse($startDate) : null;
-        $endDate = $endDate ? Carbon::parse($endDate) : null;
+        $startDate = $startDate ? Carbon::parse($startDate) : now()->subYear();
+        $endDate = $endDate ? Carbon::parse($endDate) : now();
 
         $metricsService = resolve(MetricsService::class);
 

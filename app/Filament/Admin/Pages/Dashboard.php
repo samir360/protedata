@@ -2,6 +2,13 @@
 
 namespace App\Filament\Admin\Pages;
 
+use App\Filament\Admin\Widgets\AverageRevenuePerUserChart;
+use App\Filament\Admin\Widgets\AverageUserSubscriptionConversionChart;
+use App\Filament\Admin\Widgets\ChurnChart;
+use App\Filament\Admin\Widgets\MetricsOverview;
+use App\Filament\Admin\Widgets\MonthlyRecurringRevenueChart;
+use App\Filament\Admin\Widgets\ServicesOverview;
+use App\Filament\Admin\Widgets\TotalRevenueChart;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -11,6 +18,21 @@ use Filament\Pages\Dashboard\Concerns\HasFiltersForm;
 class Dashboard extends \Filament\Pages\Dashboard
 {
     use HasFiltersForm;
+
+    protected static ?string $navigationIcon = 'heroicon-o-home';
+
+    public function getWidgets(): array
+    {
+        return [
+            ServicesOverview::class,
+            MetricsOverview::class,
+            MonthlyRecurringRevenueChart::class,
+            TotalRevenueChart::class,
+            AverageUserSubscriptionConversionChart::class,
+            ChurnChart::class,
+            AverageRevenuePerUserChart::class,
+        ];
+    }
 
     public function filtersForm(Form $form): Form
     {

@@ -140,4 +140,9 @@ class AnnouncementResource extends Resource
     {
         return __('Announcements');
     }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
 }

@@ -14,31 +14,31 @@ class TotalRevenueChart extends ChartWidget
 {
     use InteractsWithPageFilters;
 
-    protected static ?int $sort = 1;
+    protected static ?int $sort = 2;
 
     protected static ?string $pollingInterval = null;
 
     protected function getData(): array
     {
-        $startDate = $this->filters['start_date'];
-        $endDate = $this->filters['end_date'];
-        $period = $this->filters['period'];
+        // Get filters with default values if not set
+        $filters = $this->filters ?? [];
+        $startDate = $filters['start_date'] ?? now()->subYear()->toDateString();
+        $endDate = $filters['end_date'] ?? now()->toDateString();
+        $period = $filters['period'] ?? 'month';
 
         // parse the dates to Carbon instances
-        $startDate = $startDate ? Carbon::parse($startDate) : null;
-        $endDate = $endDate ? Carbon::parse($endDate) : null;
+        $startDate = $startDate ? Carbon::parse($startDate) : now()->subYear();
+        $endDate = $endDate ? Carbon::parse($endDate) : now();
 
         $metricsService = resolve(MetricsService::class);
 
         $data = $metricsService->calculateDailyRevenueChart($period, $startDate, $endDate);
 
         return [
-
             'datasets' => [
                 [
                     'label' => 'Total Revenue',
                     'data' => array_values($data),
-
                 ],
             ],
             'labels' => array_keys($data),
@@ -57,7 +57,7 @@ class TotalRevenueChart extends ChartWidget
 
     public function getDescription(): string|Htmlable|null
     {
-        return __('Total Revenue is the total revenue generated.');
+        return __('Total Revenue is the sum of all revenue generated in the period.');
     }
 
     protected function getOptions(): RawJs
