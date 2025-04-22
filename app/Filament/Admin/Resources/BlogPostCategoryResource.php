@@ -90,4 +90,9 @@ class BlogPostCategoryResource extends Resource
     {
         return __('Blog Post Categories');
     }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return false;
+    }
 }
