@@ -136,13 +136,13 @@ Route::get('/subscription/change-plan-thank-you', [
 ])->name('subscription.change-plan.thank-you')->middleware('auth');
 
 // blog
-Route::controller(BlogController::class)
-    ->prefix('/blog')
-    ->group(function () {
-        Route::get('/', 'all')->name('blog')->middleware('sitemapped');
-        Route::get('/category/{slug}', 'category')->name('blog.category');
-        Route::get('/{slug}', 'view')->name('blog.view');
-    });
+// Route::controller(BlogController::class)
+//     ->prefix('/blog')
+//     ->group(function () {
+//         Route::get('/', 'all')->name('blog')->middleware('sitemapped');
+//         Route::get('/category/{slug}', 'category')->name('blog.category');
+//         Route::get('/{slug}', 'view')->name('blog.view');
+//     });
 
 Route::get('/terms-of-service', function () {
     return view('pages.terms-of-service');
@@ -175,14 +175,13 @@ Route::get('/checkout/product/success', [
 ])->name('checkout.product.success')->middleware('auth');
 
 // roadmap
-
-Route::controller(RoadmapController::class)
-    ->prefix('/roadmap')
-    ->group(function () {
-        Route::get('/', 'index')->name('roadmap');
-        Route::get('/i/{itemSlug}', 'viewItem')->name('roadmap.viewItem');
-        Route::get('/suggest', 'suggest')->name('roadmap.suggest')->middleware('auth');
-    });
+// Route::controller(RoadmapController::class)
+//     ->prefix('/roadmap')
+//     ->group(function () {
+//         Route::get('/', 'index')->name('roadmap');
+//         Route::get('/i/{itemSlug}', 'viewItem')->name('roadmap.viewItem');
+//         Route::get('/suggest', 'suggest')->name('roadmap.suggest')->middleware('auth');
+//     });
 
 // Invitations
 
