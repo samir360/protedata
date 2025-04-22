@@ -7,6 +7,7 @@ use App\Filament\Admin\Widgets\AverageUserSubscriptionConversionChart;
 use App\Filament\Admin\Widgets\ChurnChart;
 use App\Filament\Admin\Widgets\MetricsOverview;
 use App\Filament\Admin\Widgets\MonthlyRecurringRevenueChart;
+use App\Filament\Admin\Widgets\ServicesOverview;
 use App\Filament\Admin\Widgets\TotalRevenueChart;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Section;
@@ -20,16 +21,11 @@ class Dashboard extends \Filament\Pages\Dashboard
 
     protected static ?string $navigationIcon = 'heroicon-o-home';
 
-    protected function getHeaderWidgets(): array
+    public function getWidgets(): array
     {
         return [
+            ServicesOverview::class,
             MetricsOverview::class,
-        ];
-    }
-
-    protected function getFooterWidgets(): array
-    {
-        return [
             MonthlyRecurringRevenueChart::class,
             TotalRevenueChart::class,
             AverageUserSubscriptionConversionChart::class,
