@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('plan_price_payment_provider_data', function (Blueprint $table) {
             $table->foreignId('plan_price_id')->constrained();
             $table->foreignId('payment_provider_id')->constrained();
-            $table->string('payment_provider_price_id')->nullable();
+            $table->string('payment_provider_price_id', 100)->nullable();
             $table->unique(['plan_price_id', 'payment_provider_id'], 'plan_price_payment_provider_data_unq');
             $table->id();
             $table->timestamps();

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('one_time_products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug')->unique();
+            $table->string('slug', 125)->unique();
             $table->string('description')->nullable();
             $table->string('max_quantity')->default(1);
             $table->json('metadata')->nullable();

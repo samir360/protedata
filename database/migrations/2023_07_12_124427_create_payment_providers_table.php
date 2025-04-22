@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('type');
             $table->string('name');
-            $table->string('slug')->unique();
+            $table->string('slug', 125)->unique();
             $table->boolean('is_active')->default(true);
         });
     }

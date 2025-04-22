@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('user_stripe_data', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('stripe_customer_id')->nullable();
-            $table->string('stripe_payment_method_id')->nullable();
+            $table->string('stripe_customer_id', 100)->nullable();
+            $table->string('stripe_payment_method_id', 100)->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             // unique index on user_id, stripe_customer_id, stripe_payment_method_id
             $table->unique(['user_id', 'stripe_customer_id', 'stripe_payment_method_id'], 'user_stripe_data_unique');

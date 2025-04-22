@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('intervals', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug')->unique();
+            $table->string('slug', 125)->unique();
             $table->string('date_identifier');
-            $table->string('adverb')->nullable();
+            $table->string('adverb');
             $table->timestamps();
         });
     }

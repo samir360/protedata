@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tenants', function (Blueprint $table) {
-            $table->string('uuid')->unique('tenants_uuid_uniq')->nullable(false)->change();
+            $table->string('uuid', 100)->unique('tenants_uuid_uniq')->nullable(false)->change();
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('tenants', function (Blueprint $table) {
-            $table->string('uuid')->unique()->nullable()->change();
+            $table->string('uuid', 100)->unique()->nullable()->change();
         });
     }
 };

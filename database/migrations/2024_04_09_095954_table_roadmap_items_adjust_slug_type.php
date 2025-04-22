@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('roadmap_items', function (Blueprint $table) {
-            $table->string('slug', 255)->unique('roadmap_items_slug_unique_idx')->change();
+            $table->string('slug', 100)->unique('roadmap_items_slug_unique_idx')->change();
         });
     }
 

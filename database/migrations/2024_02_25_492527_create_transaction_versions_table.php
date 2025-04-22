@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('transaction_versions', function (Blueprint $table) {
             $table->increments('version_id');
-            $table->string('versionable_id');
-            $table->string('versionable_type');
+            $table->string('versionable_id', 100);
+            $table->string('versionable_type', 100);
             $table->string('user_id')->nullable();
             $table->longText('model_data');
             $table->string('reason', 100)->nullable();

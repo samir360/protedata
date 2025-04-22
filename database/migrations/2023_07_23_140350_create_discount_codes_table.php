@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('discount_codes', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique();
+            $table->string('code', 125)->unique();
             $table->foreignId('discount_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
