@@ -1,6 +1,6 @@
 <x-filament-panels::page>
     <div class="flex justify-end mb-4">
-        <x-filament::button color="primary" tag="a" href="#">
+        <x-filament::button color="primary" tag="a" href="/admin/terceros/crear">
             {{ __('Añadir tercero') }}
         </x-filament::button>
     </div>
