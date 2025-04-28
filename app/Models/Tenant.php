@@ -13,6 +13,8 @@ class Tenant extends Model
 {
     use HasFactory;
 
+    protected $table = 'parties';
+
     protected $fillable = [
         'name',
         'uuid',

@@ -25,7 +25,7 @@ class DataProtectionDashboard extends Page
 
      public static function getNavigationGroup(): ?string
     {
-        return __('Data Protection');
+        return 'Protección de Datos';
     }
 
     public function getTitle(): string
