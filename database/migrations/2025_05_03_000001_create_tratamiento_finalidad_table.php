@@ -8,18 +8,16 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('tratamientos', function (Blueprint $table) {
+        Schema::create('finalidad_tratamiento', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->date('fecha');
-            $table->string('estado'); // completo o incompleto
-            $table->json('interesados')->nullable();
+            $table->foreignId('tratamiento_id')->constrained()->onDelete('cascade');
+            $table->foreignId('finalidad_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('tratamientos');
+        Schema::dropIfExists('finalidad_tratamiento');
     }
 }; 

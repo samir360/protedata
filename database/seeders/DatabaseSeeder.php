@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
             EmailProvidersSeeder::class,
             VerificationProvidersSeeder::class,
         ]);
+
+        $this->call(FinalidadesSeeder::class);
     }
 }

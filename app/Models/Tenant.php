@@ -13,7 +13,7 @@ class Tenant extends Model
 {
     use HasFactory;
 
-    protected $table = 'parties';
+    protected $table = 'tenants';
 
     protected $fillable = [
         'name',

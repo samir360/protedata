@@ -10,5 +10,12 @@ class Tratamiento extends Model
         'nombre',
         'fecha',
         'estado', // completo o incompleto
+        'interesados',
+        'tipo_datos',
     ];
+
+    public function finalidades()
+    {
+        return $this->belongsToMany(Finalidad::class);
+    }
 } 
