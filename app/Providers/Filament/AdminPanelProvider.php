@@ -18,6 +18,7 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
+use App\Filament\Admin\Resources\ProteccionDatos;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -105,6 +106,11 @@ class AdminPanelProvider extends PanelProvider
                         slug: 'my-profile' // Sets the slug for the profile page (default = 'my-profile')
                     ),
             ])
-            ->sidebarCollapsibleOnDesktop();
+            ->sidebarCollapsibleOnDesktop()
+            ->discoverResources(in: app_path('Filament/Admin/Resources/ProteccionDatos'), for: 'App\\Filament\\Admin\\Resources\\ProteccionDatos')
+            ->resources([
+                ProteccionDatos\SitioWebResource::class,
+                // ... otros recursos ...
+            ]);
     }
 }

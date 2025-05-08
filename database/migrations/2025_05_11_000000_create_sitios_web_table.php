@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('sitios_web', function (Blueprint $table) {
             $table->id();
-            $table->string('url')->unique();
+            $table->string('url', 191)->unique();
             $table->timestamps();
         });
     }
