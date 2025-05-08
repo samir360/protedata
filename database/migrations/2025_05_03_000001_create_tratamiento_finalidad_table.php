@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('finalidad_tratamiento', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tratamiento_id')->constrained()->onDelete('cascade');
-            $table->foreignId('finalidad_id')->constrained()->onDelete('cascade');
+            $table->foreignId('finalidad_id')->references('id')->on('finalidades')->onDelete('cascade');
             $table->timestamps();
         });
     }
