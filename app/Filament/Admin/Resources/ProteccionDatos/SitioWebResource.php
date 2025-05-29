@@ -25,6 +25,7 @@ class SitioWebResource extends Resource
     protected static ?string $navigationLabel = 'Sitios web';
     protected static ?string $pluralLabel = 'Sitios web';
     protected static ?string $label = 'Sitio web';
+    protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {

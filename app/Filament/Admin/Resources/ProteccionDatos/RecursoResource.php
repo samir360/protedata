@@ -27,6 +27,7 @@ class RecursoResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-server';
     protected static ?string $navigationLabel = 'Recursos';
     protected static ?string $navigationGroup = 'Protección de Datos';
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {

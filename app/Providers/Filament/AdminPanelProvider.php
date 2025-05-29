@@ -109,8 +109,12 @@ class AdminPanelProvider extends PanelProvider
             ->sidebarCollapsibleOnDesktop()
             ->discoverResources(in: app_path('Filament/Admin/Resources/ProteccionDatos'), for: 'App\\Filament\\Admin\\Resources\\ProteccionDatos')
             ->resources([
-                ProteccionDatos\SitioWebResource::class,
-                // ... otros recursos ...
+                // Panel (Dashboard) no es un recurso, es la página principal
+                \App\Filament\Admin\Resources\TerceroResource::class,
+                \App\Filament\Admin\Resources\EmpleadoResource::class,
+                \App\Filament\Admin\Resources\TratamientoResource::class,
+                \App\Filament\Admin\Resources\ProteccionDatos\RecursoResource::class,
+                \App\Filament\Admin\Resources\ProteccionDatos\SitioWebResource::class,
             ]);
     }
 }
